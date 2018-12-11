@@ -11,30 +11,17 @@ mw.loader.using( 'oojs-ui-core' ).done( function () {
 	
 			hasUserVoted = false,
 			feedbackData  = [],
-			apiUrl = mw.config.get( 'wgServer' ) + '/w/api.php',
-			curPageId = mw.config.get( 'wgArticleId' );
+			curPageId = mw.config.get( 'wgArticleId' ),
+			displayAfter = '#catlinks';
 		
-		$.getJSON( apiUrl, {
-			action: "query",
-			format: "json",
-			pageids: curPageId,
-			prop: "categories"
-		} ).
-		done( function( data ) {
-			var cats = data.query.pages[curPageId].categories;
+		if ( $( displayAfter ).length == 0 ) {
+			displayAfter = '#mw-conent-text';
+		}
 
-			if( cats && cats.length >= 0 ) {
-				$( '#catlinks' ).after( noButton.$element );
-				$( '#catlinks' ).after( yesButton.$element );
-				$( '#catlinks' ).after( 'Was this documentation helpful? ' );
-				$( '#catlinks' ).after( '<br>' );
-			} else {
-				$( '#mw-content-text' ).after( noButton.$element );
-				$( '#mw-content-text' ).after( yesButton.$element );
-				$( '#mw-content-text' ).after( 'Was this documentation helpful? ' );
-				$( '#mw-content-text' ).after( '<br>' );
-			}
-		} );
+		$( displayAfter ).after( noButton.$element );
+		$( displayAfter ).after( yesButton.$element );
+		$( displayAfter ).after( 'Was this documentation helpful? ' );
+		$( displayAfter ).after( '<br>' );
 
 		yesButton.on( 'click', function() {
 			collectVote( "Yes" );
