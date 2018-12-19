@@ -3,8 +3,10 @@
 	background-color: #f3f3ff; 
 	padding: 10px;
 	text-align: center; 
-	margin-top: 1em; 
-	min-height: 30px;
+	height: 35px;
+    width: 100em;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 #doc-feedback-form span {

@@ -10,30 +10,16 @@ mw.loader.using( 'oojs-ui-core', 'ext.eventLogging' ).done( function() {
         namespace = mw.config.get( 'wgCanonicalNamespace' ),
         namespaceNum = mw.config.get( 'wgNamespaceNumber' ),
         action = mw.config.get( 'wgAction' ),
-        talkPage = mw.Title.newFromText( title, namespaceNum ).getTalkPage(),
+        mwTitle = mw.Title.newFromText( title, namespaceNum ),
+        talkPage = mwTitle.getTalkPage(),
+        isTalkPage = mwTitle.isTalkPage(),
         talkPageUrl = talkPage.getUrl(),
         supportedNamespaces = ["User"],
         display = '#catlinks',
         prevVote = '';
 
     function getPreviousVote() {
-        var start,
-            end,
-            cookie = document.cookie;
-
-        if ( cookie ) {
-            start = cookie.search( 'vote=' );
-            end = cookie.search( ';' );
-
-            if ( start !== -1 ) {
-                cookie = cookie.substring( start + 9, end );
-                cookie = cookie.substring( 5, cookie.length );
-
-                return cookie;
-            }
-        }
-
-        return null;
+        return mw.cookie.get( "vote" );
     }
 
     function collectVote( response ) {
@@ -71,7 +57,9 @@ mw.loader.using( 'oojs-ui-core', 'ext.eventLogging' ).done( function() {
     }
 
     function setCookie( response ) {
-        document.cookie = "vote=" + response + ";";
+        var expInSecs = 600; //10 minutes
+
+        mw.cookie.set( "vote", response, { "expires": expInSecs } );
     }
 
     function showConfirmationMsg( response ) {
@@ -101,10 +89,11 @@ mw.loader.using( 'oojs-ui-core', 'ext.eventLogging' ).done( function() {
             } );
 
         if ( action !== "view" ||
-            namespace.indexOf( supportedNamespaces ) == -1 ) {
+            namespace.indexOf( supportedNamespaces ) == -1 ||
+            isTalkPage ) {
             return;
         }
-        if ( $( display ).length == 0 ) {
+        if ( $( display ).length === 0 ) {
             display = '#mw-content-text';
         }
         $( display ).after( "<div id='doc-feedback-form'></div>" );
