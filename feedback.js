@@ -3,7 +3,8 @@
  * 
  * Displays a feedback form and collect user votes   
  */
-mw.loader.using( 'oojs-ui-core', 'ext.eventLogging' ).done( function() {
+ 
+mw.loader.using( 'ext.eventLogging' ).done( function() {
     var feedbackData = [],
         title = mw.config.get( 'wgTitle' ),
         articleId = mw.config.get( 'wgArticleId' ),
@@ -73,21 +74,14 @@ mw.loader.using( 'oojs-ui-core', 'ext.eventLogging' ).done( function() {
 
         if ( response == "no" ) {
             $( "#doc-feedback-form" ).append( "<span> Thank you for the" +
-                " feedback. It would be helpful if you could provide more" +
-                " information on what needs improvement on the article's" +
+                " feedback. It would be helpful if you could leave some" +
+                " suggestions for improving the article on its" +
                 " <a href='" + talkPageUrl + "' target='blank'>" +
-                "talk page.</a> </span>" );
+                "talk page</a>. </span>" );
         }
     }
 
     $( document ).ready( function() {
-        var yesButton = new OO.ui.ButtonWidget( {
-                label: 'Yes'
-            } ),
-            noButton = new OO.ui.ButtonWidget( {
-                label: 'No'
-            } );
-
         if ( action !== "view" ||
             namespace.indexOf( supportedNamespaces ) == -1 ||
             isTalkPage ) {
@@ -105,15 +99,17 @@ mw.loader.using( 'oojs-ui-core', 'ext.eventLogging' ).done( function() {
         } else {
             $( "#doc-feedback-form" ).append( '<span>' +
                 'Was this documentation helpful? </span>' );
-            $( "#doc-feedback-form" ).append( yesButton.$element );
-            $( "#doc-feedback-form" ).append( noButton.$element );
+            $( "#doc-feedback-form" ).append( '<a id="thumbs-up"' +
+                'class="thumbs">👍</a>' );
+            $( "#doc-feedback-form" ).append( '<a id="thumbs-down"' +
+                'class="thumbs">👎</a>' );
         }
 
-        yesButton.on( 'click', function(  ) {
+        $( '#thumbs-up' ).click( function() {
             collectVote( "yes" );
         } );
 
-        noButton.on( 'click', function(  ) {
+        $( '#thumbs-down' ).click( function() {
             collectVote( "no" );
         } );
 
