@@ -1,4 +1,4 @@
-#doc-feedback-form {
+#mw-userfeedback-form {
 	background-color: #f3f3ff;
 	height: 55px;
 	width: 100%;
@@ -8,19 +8,19 @@
 	transition: transform .2s;
 }
 
-#doc-feedback-form span {
+#mw-userfeedback-form span {
 	font-size: 16px;
 	margin: 5px;
 }
 
-#doc-feedback-form .thumbs {
+#mw-userfeedback-form .thumbs {
 	color: transparent;
 	margin: 5px;
 	font-size: 30px;
 	text-shadow: 0 0 0 #a37ced;
 }
 
-#doc-feedback-form .thumbs:hover {
+#mw-userfeedback-form .thumbs:hover {
 	text-decoration: none;
 	text-shadow: 0 0 0 #794bc4;
 	transform: scale(1.2);
@@ -28,7 +28,7 @@
 	-webkit-transform: scale(1.2);
 }
 
-#doc-feedback-form #thumbs-down {
+#mw-userfeedback-form .thumbs-down {
 	position: relative;
 	margin-top: 16px;
 }
