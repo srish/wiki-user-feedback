@@ -6,7 +6,9 @@ A user script, for now, it will soon be a user feedback gadget for technical doc
 ### Screenshots
 
 Feedback form design:
-<img src="images/1.png" width="1000">
+<table><tr><td>
+<img src="images/1.png" width="1000" style="border 5px solid black">
+</td></tr></table>
 Confirmation message for a thumbs-down vote:
 <img src="images/2.png" width="1000">
 Confirmation message for a thumbs-up vote:
