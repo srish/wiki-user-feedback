@@ -1,22 +1,24 @@
 #mw-userfeedback-form {
 	background-color: #f3f3ff;
-	height: 55px;
+	height: 45px;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	transition: transform .2s;
+	margin: 5px 0 5px 0;
+	border: 1px solid #a2a9b1;
 }
 
 #mw-userfeedback-form span {
-	font-size: 16px;
+	font-size: 12px;
 	margin: 5px;
 }
 
 #mw-userfeedback-form .thumbs {
 	color: transparent;
-	margin: 5px;
-	font-size: 30px;
+	margin: 1px;
+	font-size: 20px;
 	text-shadow: 0 0 0 #a37ced;
 }
 
@@ -30,5 +32,5 @@
 
 #mw-userfeedback-form .thumbs-down {
 	position: relative;
-	margin-top: 16px;
+	margin-top: 10px;
 }

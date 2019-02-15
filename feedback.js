@@ -5,15 +5,14 @@
  */
 
 
-var feedbackData = [],
-    articleId = mw.config.get( 'wgArticleId' ),
+var articleId = mw.config.get( 'wgArticleId' ),
     namespace = mw.config.get( 'wgCanonicalNamespace' ),
     action = mw.config.get( 'wgAction' ),
     mwTitle = mw.Title.newFromText( mw.config.get( 'wgPageName' ) ),
     talkPage = mwTitle.getTalkPage(),
     isTalkPage = mwTitle.isTalkPage(),
     talkPageUrl = talkPage.getUrl(),
-    supportedNamespaces = ['User'],
+    supportedNamespaces = ['Help'],
     display = '#catlinks',
     prevVote = '';
 
@@ -27,28 +26,11 @@ function collectVote( response ) {
     }
 
     if ( response === 'yes' ) {
-        feedbackData.push( {
-            page_id: articleId,
-            vote: 'yes'
-        } );
-
-        /*
-         * Uncomment the line below only when you are ready to deploy the gadget on a production wiki
-         */
-        //mw.eventLog.logEvent(  'UserFeedback', { page_id: articleId, vote: "Yes" }  );
+        mw.eventLog.logEvent(  'UserFeedback', { page_id: articleId, vote: "Yes" }  );
     }
 
     if ( response === 'no' ) {
-        feedbackData.push( {
-            page_id: articleId,
-            vote: 'no'
-        } );
-
-        /*
-         * Uncomment the line below only when you are ready to deploy the gadget on a production wiki
-         */
-
-        //mw.eventLog.logEvent(  'UserFeedback', { page_id: articleId, vote: "no" }  );
+        mw.eventLog.logEvent(  'UserFeedback', { page_id: articleId, vote: "no" }  );
     }
 
     setCookie( response );
