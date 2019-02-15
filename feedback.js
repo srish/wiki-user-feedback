@@ -35,7 +35,6 @@ function collectVote( response ) {
 
     setCookie( response );
     showConfirmationMsg( response );
-    console.log( feedbackData );
 }
 
 function setCookie( response ) {
