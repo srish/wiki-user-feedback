@@ -17,7 +17,7 @@ var articleId = mw.config.get( 'wgArticleId' ),
     prevVote = '';
 
 function getPreviousVote() {
-    return mw.cookie.get( 'vote' );
+    return mw.cookie.get( 'vote_' + articleId );
 }
 
 function collectVote( response ) {
@@ -40,7 +40,7 @@ function collectVote( response ) {
 function setCookie( response ) {
     var expInSecs = 600; //10 minutes
 
-    mw.cookie.set( 'vote', response, { 'expires': expInSecs } );
+    mw.cookie.set( 'vote_' + articleId, response, { 'expires': expInSecs } );
 }
 
 function showConfirmationMsg( response ) {
