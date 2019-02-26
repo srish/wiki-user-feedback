@@ -8,7 +8,8 @@
 var articleId = mw.config.get( 'wgArticleId' ),
     namespace = mw.config.get( 'wgCanonicalNamespace' ),
     action = mw.config.get( 'wgAction' ),
-    mwTitle = mw.Title.newFromText( mw.config.get( 'wgPageName' ) ),
+    pageName = mw.config.get( 'wgPageName' ),
+    mwTitle = mw.Title.newFromText( pageName ),
     talkPage = mwTitle.getTalkPage(),
     isTalkPage = mwTitle.isTalkPage(),
     talkPageUrl = talkPage.getUrl(),
@@ -26,11 +27,11 @@ function collectVote( response ) {
     }
 
     if ( response === 'yes' ) {
-        mw.eventLog.logEvent(  'UserFeedback', { page_id: articleId, vote: "Yes" }  );
+        mw.eventLog.logEvent(  'UserFeedback', { page_id: articleId, page_name: pageName, vote: "Yes" }  );
     }
 
     if ( response === 'no' ) {
-        mw.eventLog.logEvent(  'UserFeedback', { page_id: articleId, vote: "no" }  );
+        mw.eventLog.logEvent(  'UserFeedback', { page_id: articleId, page_name: pageName, vote: "no" }  );
     }
 
     setCookie( response );
