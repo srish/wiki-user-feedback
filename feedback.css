@@ -1,4 +1,4 @@
-#mw-userfeedback-form {
+#mw-gadget-userfeedback {
 	background-color: #f3f3ff;
 	height: 45px;
 	width: 100%;
@@ -10,27 +10,26 @@
 	border: 1px solid #a2a9b1;
 }
 
-#mw-userfeedback-form span {
-	font-size: 12px;
-	margin: 5px;
+#mw-gadget-userfeedback .survey-question {
+	margin-right: 5px;
 }
 
-#mw-userfeedback-form .thumbs {
+#mw-gadget-userfeedback .thumbs .oo-ui-buttonElement-button {
 	color: transparent;
-	margin: 1px;
+	margin: 0px;
 	font-size: 20px;
 	text-shadow: 0 0 0 #a37ced;
 }
 
-#mw-userfeedback-form .thumbs:hover {
+#mw-gadget-userfeedback .thumbs .oo-ui-buttonElement-button:hover {
 	text-decoration: none;
 	text-shadow: 0 0 0 #794bc4;
-	transform: scale(1.2);
 	-ms-transform: scale(1.2);
 	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
 }
 
-#mw-userfeedback-form .thumbs-down {
+#mw-gadget-userfeedback .thumbs-down .oo-ui-buttonElement-button {
 	position: relative;
 	margin-top: 10px;
 }
