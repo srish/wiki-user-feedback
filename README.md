@@ -1,6 +1,6 @@
 # wiki user feedback
 
-It is a user feedback gadget for technical documentation currentkly deployed on MediaWiki.org & Wikitech.
+It is a user feedback gadget for technical documentation currentkly deployed on MediaWiki.org & Wikitech (see here: https://www.mediawiki.org/wiki/MediaWiki:Gadget-userfeedback.js)
 
 
 ### Screenshots
