@@ -1,6 +1,7 @@
 # wiki user feedback
 
-It is a user feedback gadget for technical documentation currentkly deployed on MediaWiki.org & Wikitech (see here: https://www.mediawiki.org/wiki/MediaWiki:Gadget-userfeedback.js)
+It is a user feedback gadget for technical documentation currentlly deployed on MediaWiki.org & Wikitech (see here: https://www.mediawiki.org/wiki/MediaWiki:Gadget-userfeedback.js)
+View the Gadget in action on any page in the API namespace on MediaWiki.org (e.g., https://www.mediawiki.org/wiki/API:Search) and in the Help namespace on Wikitech.
 
 
 ### Screenshots
